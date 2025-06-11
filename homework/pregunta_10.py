@@ -5,6 +5,14 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+def cargar_datos(ruta):
+    with open(ruta, 'r') as f:
+        return [line.strip().split('\t') for line in f.readlines()]
+    
+# Ruta absoluta 
+ruta_archivo = "c:/Users/Alejandra Rojas/Documents/GitHub/LAB-01-python-basico-Aleja7R/files/input/data.csv"
+
+datos = cargar_datos(ruta_archivo)
 
 def pregunta_10():
     """
@@ -20,3 +28,13 @@ def pregunta_10():
 
 
     """
+    resultado = []
+    for line in datos:
+        letra = line[0]
+        col4_count = len(line[3].split(','))
+        col5_count = len(line[4].split(','))
+        resultado.append((letra, col4_count, col5_count))
+    return resultado
+
+if __name__ == "__main__":
+    print(pregunta_10())

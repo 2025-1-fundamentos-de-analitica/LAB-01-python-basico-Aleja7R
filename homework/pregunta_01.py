@@ -5,6 +5,14 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+def cargar_datos(ruta):
+    with open(ruta, 'r') as f:
+        return [line.strip().split('\t') for line in f.readlines()]
+
+# Ruta absoluta 
+ruta_archivo = "c:/Users/Alejandra Rojas/Documents/GitHub/LAB-01-python-basico-Aleja7R/files/input/data.csv"
+
+datos = cargar_datos(ruta_archivo)
 
 def pregunta_01():
     """
@@ -12,5 +20,8 @@ def pregunta_01():
 
     Rta/
     214
-
     """
+    return sum(int(line[1]) for line in datos)
+
+if __name__ == "__main__":
+    print(pregunta_01())
