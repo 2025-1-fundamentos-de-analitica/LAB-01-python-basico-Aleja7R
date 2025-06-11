@@ -10,7 +10,7 @@ def cargar_datos(ruta):
         return [line.strip().split('\t') for line in f.readlines()]
 
 # Ruta absoluta 
-ruta_archivo = "c:/Users/Alejandra Rojas/Documents/GitHub/LAB-01-python-basico-Aleja7R/files/input/data.csv"
+ruta_archivo = "files/input/data.csv"
 
 datos = cargar_datos(ruta_archivo)
 
