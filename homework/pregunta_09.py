@@ -38,7 +38,16 @@ def pregunta_09():
     for line in datos:
         pares = line[4].split(',')
         claves.extend(par.split(':')[0] for par in pares)
-    return dict(Counter(claves))
+    
+    #ocurrencias de cada clave
+    cuenta_claves = dict(Counter(claves))
+    
+    #diccionario ordenado 
+    orden_claves = ['aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff', 'ggg', 'hhh', 'iii', 'jjj']
+    
+    resultado = {clave: cuenta_claves[clave] for clave in orden_claves}
+    
+    return resultado
 
 if __name__ == "__main__":
     print(pregunta_09())
